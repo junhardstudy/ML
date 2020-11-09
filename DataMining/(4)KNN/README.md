@@ -1,12 +1,4 @@
----
-
-title: "K-NN"
-excerpt: "K-NN에 대한 이론과 rapid miner를 이용한 실습"
-last_modified_at: 2020-08-15T10:27:01-05:00
-categories:
-  - data_mining_course
-use_math : true
----
+## KNN 개요
 
 예측하고자 하는 test record와 가장 가까운 k개의 training record들을 찾아 class label을 판별하는 분류.
 <br>
@@ -46,8 +38,11 @@ K-NN 알고리즘의 핵심은 test record와 가장 가까운 training record �
 * Correlation
 
 * Similarity
+
   * Simple matching coefficient
+  
   * Jaccard similarity
+  
   * Cosine similarity
   
 ***
@@ -58,11 +53,13 @@ K-NN 알고리즘의 핵심은 test record와 가장 가까운 training record �
 n차원에서 두 점 사이의 거리
 <br>
 Example)
+![수식](./image/)
 <br>
-two data $X_{1} = (3, 2, 5, 2)$, $X_{2} = (7, 2, 1, 2)$가 있을 때,
+위와 같은 2개의 data가 있을 때,
 <br>
 
 distance =  $\sqrt{(-4)^{2} + (0)^{2} + (4)^{2} + (0)^{2}} = 4\sqrt{2} = 5.656$
+![수식](./image/)
 
 <br>
 
@@ -189,7 +186,7 @@ $ = \frac{1 + 1}{1 + 0 + 0 + 1 + 0 + 1 + 0 + 1}= \frac{2}{4} = 0.5$
 
 Jaccard Coefficient = $\frac{common occurrence}{total occurrence}$
 <br>
--> 이 때 total occurrence 계산 시, negative matching($m_{000}$와 같은)은 무시
+-> 이 때 total occurrence 계산 시, negative matching(m(000))은 무시
 <br>
 Example)X = (1, 1, 0, 0), Y = (1, 0, 0, 1), Z = (1, 1, 0, 1)
 <br>
