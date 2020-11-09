@@ -160,18 +160,20 @@ overfitting과는 반대로 모델의 complexity가 낮아져 training error가 
 
 ## Rapid Miner를 이용한 실습
 
+순서
 
-target class를 포함하여 23개의 attribute를 가지고 있으며 record의 개수는 8,124개 입니다. 이 중 70퍼센트를 learning data, 나머지 30퍼센트를 test data로 활용합니다.
-* [Data preparation](#data preparation)
+1. Data preparation
 
-* [Learning model](#learning model)
+2. Learning model
 
-* [Apply test data](#test data)
+3. Apply test data
 
 
 ***
 
 ### Data preparation
+
+target class를 포함하여 23개의 attribute를 가지고 있으며 record의 개수는 8,124개 입니다. 이 중 70퍼센트를 learning data, 나머지 30퍼센트를 test data로 활용합니다.
 
 예시 데이터셋의 경우, missing attribute, label이 없습니다.
 <br>
