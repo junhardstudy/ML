@@ -1,26 +1,11 @@
----
-
-title: "Decision Tree"
-excerpt: "Data Mining에서 supervised learning인 classification에서 decision tree에 대한 이론과 rapid miner를 이용하여 버섯 데이터를 분류 해 봅니다."
-last_modified_at: 2020-08-08T11:27:01-05:00
-order: 2
-categories:
-  - data_mining_course
-  
-use_math: true
-
----
+# 개요
 
 데이터 마이닝에서 supervised learning중 classification인 decision tree model을 이용하여 버섯 데이터를 학습한 뒤 식용 버섯인지 독 버섯인지 예측하여 봅니다.
 
- 
-
-
-***
 ## Decision Tree
 
 가령 독버섯에 대한 decision tree 모델에 대해 예시를 들면 아래와 같습니다.
-![decision_tree_example_image1](/image/decision_tree_ex1.jpg)
+![decision_tree_example_image1](./image/decision_tree_ex1.jpg)
 
 
 * root node: decision tree의 가장 상단에 있는 노드로서, 들어오는 edge는 없고 0개 이상의 edge(s)를 포함하는 노드 입니다.
@@ -31,11 +16,8 @@ use_math: true
 
 최적의 split attribute condition을 찾기 위한 attribute test condition방법에서 impurity가 사용됩니다.
 특정 노드 t의 impurity값은
-1. [$GINI(t) = 1 - \sum_{j}[P(j\|t)]^{2}$](#gini)
 
-2. [$Entropy(t) = -\sum_{j}P(j\|t)\log{_{2}P(j\|t)}$](#entropy)
-
-3. [$Error(t) = 1 - max_{j}P(j\|t)$](#error)
+![impurity equations](./image/equations.png)
 
 위 impurity 값이 최소가 되는 방향으로, 
 또는 GAIN값이 최대가 되는 방향으로 split condition을 정하게 됩니다.
@@ -48,9 +30,7 @@ use_math: true
 ## GINI index
 CART, SLIQ, SPRINT 알고리즘에서 사용되며, impurity와 k개의 분할에 대한 Gini index에 가중치가 적용된 Gini split은 각각 아래와 같습니다.
 
-#### $GINI(t) = 1 - \sum_{j}[P(j\|t)]^{2}$
-
-#### $GINI_{split} =  \sum_{i = 1}^{k}\frac{n_{i}}{n}GINI(i)$
+![gini](./image/gini.png)
 
 Example)
 
@@ -77,9 +57,9 @@ $GINI_{split} = \frac{11}{20} \times 0.297 + \frac{9}{20} \times 0.444 = 0.363$
 ## Entropy
 ID3, C4.5 알고리즘에서 사용되며, impurity와 Gain split 값은 아래와 같습니다. 
 
-#### $Entropy(t) = -\sum_{j}P(j\|t)\log{_{2}P(j\|t)}$
+![gini](./image/entropy.png)
 
-#### $GAIN_{split} = Entropy(p) -(\sum_{i = 1}^{k}\frac{n_{i}}{n}Entropy(i))$
+
 ###### ( Entropy(p) : before split )
 
 <br>
@@ -97,7 +77,7 @@ ID3, C4.5 알고리즘에서 사용되며, impurity와 Gain split 값은 아래�
 초콜렛의 정보량은 : 0.699 로 초콜렛을 뽑을 사건이 더 정보량이 높게 나옵니다.
 <br>
 <br>
-$definition : I(x) = -logP(x)$
+![information](./image/information.png)
 <br>
 <br>
 정의에서 알수 있듯이, 좀 더 잘 일어날수 있는 사건(P(x))의 경우 높은 값을 가지고, 반대로 드물게 일어나는 사건일수록 낮은 값을 가짐을 알 수 있습니다.
@@ -127,6 +107,8 @@ $Gain_{split} = 0.971 - (\frac{11}{20} \times 0.684 + \frac{9}{20} \times 0.918)
 </div>
 <br>
 
+![solve1](./image/solve1.png)
+
 
 <div id="error"></div>
 
@@ -134,7 +116,7 @@ $Gain_{split} = 0.971 - (\frac{11}{20} \times 0.684 + \frac{9}{20} \times 0.918)
 
 ## Misclassification Error
 
-#### $Error(t) = 1 - max_{j}P(j\|t)$
+![missclassification](./image/missclassification.png)
 
 Example)
 
@@ -160,11 +142,11 @@ $Error(Split) = \frac{11}{20} \times 0.182 + \frac{9}{20} \times 0.333 = 0.250$
 split condition으로 id에 대해 record개수 만큼 split을 하게 된다면 impurity값은 작아지겠지만 우리가 얻고자 하는 유의미한 모델은 아니게 됩니다. 따라서 이러한
 split에 대해 제약을 주기 위해 SplitINFO가 사용 됩니다.
 
-#### $SplitINFO = -\sum_{i = 1}^{k}\frac{n_{i}}{n}log\frac{n_{i}}{n}$
+![splitinfo](./image/splitinfo.png)
 
 따라서 split에 대한 제약이 적용된 gain은
 
-#### $GainRATIO_{split} = \frac{GAIN_{split}}{SplitINFO}$
+![gainratio](./image/gainratio.png)
 
 Example)GINI index 예제에 splitINFO를 적용하면,
 
@@ -179,6 +161,8 @@ $ GINI_{split} = 0.363$
 $ GainRATIO_{split} = \frac{0.132}{0.993} = 0.1329$
 </div>
 <br>
+
+![solve2](./image/solve2.png)
 
 ***
 

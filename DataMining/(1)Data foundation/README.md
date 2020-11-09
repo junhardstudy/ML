@@ -1,27 +1,17 @@
----
-
-title: "What is Data Mining?"
-excerpt: "Data Mining에 대한 정의와 관련된 개념, 실제 데이터를 이용한 예시"
-last_modified_at: 2020-08-08T10:27:01-05:00
-order: 1
-categories:
-  - data_mining_course
-
----
-
-데이터 마이닝(Data Mining)은 이미 알고 있는 데이터의 특성(<strong>attributes</strong>)들을 이용하여 <strong>model</strong>을 학습하거나, 이용하여 추후, 또는 모르지만(unpredicted) 관심있는 특별한 데이터의 특징(<strong>target</strong>)을 예측(predict)하는 것입니다.
-
----
 #### 목차
+
 1. 특성(Attribute)
+
 2. Data
+
 3. Model
 
----
+***
+
 ### 특성(Attribute)
 특성을 이야기하기 전에, 아래와 같은 버섯에 관한 데이터가 존재할 때 각각의 행(row)을 record 또는 instance 라고 하는데
 
-![이미지를 표시할수 없습니다](../../../../image/data_preview.png)
+![이미지를 표시할수 없습니다](./image/data_preview.PNG)
 
 
 각 record의 column(열)들이 data의 attribute이며 버섯의 갓 모양이나 색깔등등, 명칭에서 알수 있듯이 버섯 데이터에 대한 여러 특성(attributes)들을 알려 줍니다.
@@ -41,6 +31,8 @@ supervised learning은 예측하고자 하는 데이터의 target class의 label
 
 unsupervised learning은 예측하고자 하는 데이터의 target class의 label이 없는 경우로, 특정한 분류, label의 예측이 아닌 데이터 간의 관계나 데이터의 특성, 패턴등에 관심이 있는 경우 입니다. 알아볼 model은 clustering 입니다.
 
+***
 
+## 출처 및 참고 문헌
 
-버섯 데이터 출처 : <https://www.kaggle.com/uciml/mushroom-classification>
+버섯 데이터 : <https://www.kaggle.com/uciml/mushroom-classification>
