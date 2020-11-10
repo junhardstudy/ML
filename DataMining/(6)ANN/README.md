@@ -100,19 +100,24 @@ XOR 문제와 같이, 기존의 perceptron으로는 선형적으로 분리할 �
 
 2. Training example의 class와 일치하도록 weight값을 조정(학습).
 
-   * objective function : $E(\overrightarrow{w}) = \frac{1}{2}\sum_{i=1}^{N}(y_{i} - \hat{y_{i}})^{2}$.
-  
+   * objective function
+	
+	![경사하강법 예시그림](./image/eq1.png)
+	
    * weight를 갱신할 때는 objective function을 최소화 하는 방향으로 진행. 
   
    * 이 때, backpropagation algorithm이나 경사 하강법(gradient descent method)등을 이용.
    
-   * Gradient descent : $w_{j} \leftarrow w_{j} - \lambda \frac{\partial E(\overrightarrow{w})}{\partial w_{j}}$
+   * Gradient descent
    
-   * ![경사하강법 예시그림](/image/gradient_descent.jpg)
+	![경사하강법 예시그림](./image/eq2.png)
+   
+   ![경사하강법 예시그림](./image/gradient_descent.jpg)
   
 <br>
 <br>
 <hr>
+
 ### Characteristic of ANN
 
 * 경사 하강법의 경우, 종종 local minimum으로 수렴하는 경우가 있음. 이럴 경우, weight를 갱신할 때 momentum term을 주어 해결 가능.
@@ -155,7 +160,7 @@ Activation function으로는 sigmoid함수를 사용했습니다.
   
 ## 출처 및 참고문헌
 
-ANN에 대한 : 강의 PPT 자료
+ANN에 대한 이론 및 rapid miner 사용법 : 강의 PPT 자료
 
 
 

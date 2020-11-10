@@ -324,11 +324,29 @@ training example의 weight를 update하는데 이용
 
 ![image](./image/2-2.JPG)
 
+AdaBoost의 경우, base 모델은 decision tree로 10개를 생성하였습니다.
+
+<br>
+<br>
+
+![image](./image/a1.JPG)
+
+![image](./image/a2.JPG)
+
 2. Random forest
 
 ![image](./image/1.JPG)
 
 ![image](./image/1-1.JPG)
+
+Tree의 개수는 10개로 하며, confidence voting을 사용하였습니다.
+
+<br>
+<br>
+
+![image](./image/r2.JPG)
+
+![image](./image/r1.JPG)
 
 ***
 
