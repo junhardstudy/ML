@@ -357,7 +357,7 @@ Tree의 개수(base model의 개수)는 10개로 하며, decision tree를 생성
 마찬가지로 decision tree 단독으로 사용한 모델에서 예측을 할때보다, 좀 더 예측을 잘하는 것을 알수있습니다.
 
 
-### decision tree 단독으로 사용했을 경우 예측 성능에
+### decision tree 단독으로 사용했을 경우 예측 성능
 
 ![image](./image/sol.JPG)
 
