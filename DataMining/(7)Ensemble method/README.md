@@ -54,30 +54,13 @@
 <hr>
 
 ### Algorithm for Bagging
-<div style="border:3px solid; max-width: 500px;">
-Let k be the number of bootstrap samples.
-<br>
-&nbsp;&nbsp;for i = 1 to k do
-<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Create a bootstrap smple of size N, D$_{i}$
-<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Train a base classifier C_{i} on the bootstrap sample D$_{i}$
-<br>
-&nbsp;&nbsp;end for
-<br>
-C$^{*}$(x) = argmax$\sum_{i}\delta(C_{i}(x) = y)$
-<br>
-<br>
-<br>
-<font size="2px">$\delta(.) = 1 if it's argument is true andd 0 otherwise$</font>
-<br>
-<font size="2px">N : The number of examples</font>
-</div>
-<br>
-<br>
+
+![algo](./image/algo.png)
+
 <hr>
 
 ### Example applied by C programming
+
 <table>
 <th>x</th>
 <th>0.1</th>
@@ -111,6 +94,7 @@ C$^{*}$(x) = argmax$\sum_{i}\delta(C_{i}(x) = y)$
 <br>
 
 <br>
+
 ```c
 void main() {
 	int i;
@@ -256,25 +240,27 @@ double log_2(double x) {
 <br>
 <br>
 <hr>
+
 ### Boosting
 
 * Training data만 조정해서 ensemble model을 만드는 또다른 방법.
 
-&nbsp;&nbsp;&nbsp;$\rightarrow$Bagging과 마찬가지로, training data에 의한 bias를 최소화하여 여러개의 weak learner를 하나의 strong learner로 만드는 방법.
+&nbsp;&nbsp;&nbsp;Bagging과 마찬가지로, training data에 의한 bias를 최소화하여 여러개의 weak learner를 하나의 strong learner로 만드는 방법.
 <br>
 
 * Bagging은 training set을 sampling할 때 오로지 random하게만 선택하는데, 이와 다르게 Boosting은 특정 training data에 weight를 부여함으로써 더욱 집중할 수 있음.
 
-&nbsp;&nbsp;&nbsp;$\rightarrow$즉, training set중에서 분류 하기 어려운 training data에 좀 더 집중하게 함.
+&nbsp;&nbsp;&nbsp;즉, training set중에서 분류 하기 어려운 training data에 좀 더 집중하게 함.
 
 >An iterative and sequential procedure of adoptively changing the distribution of training examples for learning base classifiers
 
 <br>
 <br>
 <hr>
+
 ### Boosting Procedure
 
-(1).처음에는 모든 N개의 training examples에 대해 똑같은 weight값을 할당($\frac{1}{N}$). $\rightarrow$이는 모든 training data가 똑같은 빈도수로 선택됨.
+(1).처음에는 모든 N개의 training examples에 대해 똑같은 weight값을 할당(이는 모든 training data가 똑같은 빈도수로 선택됨.)
 <br><br>
 (2).training example의 weight를 바탕으로 <strong>boosting sample 생성</strong>.
 <br><br>
@@ -282,15 +268,13 @@ double log_2(double x) {
 <br><br>
 (4).boosting round의 마지막에 training example의 <strong>weight를 갱신</strong>.
 <br><br>
-<div style="border:3px solid; max-width: 700px; margin-left: 40px;">
-<font size="4px">Weight update in Boosting</font>
+
 <br>
 <br>
-<font size="3px">
+
 매 boosting round마다, 옳게 예측한 것은 weight를 줄이는 방향으로 진행하고 반대로 잘 못 예측하는 경우에는 weight를 증가하는 방향으로 진행하여 classifier가
 좀 더 분류하기 어려운 training example에 집중 할 수 있게 해줌.
-</font>
-</div>
+
 <br><br>
 
 (5).2~4 단계를 원하는 개수의 base model을 얻을 때 까지 반복.
@@ -300,6 +284,7 @@ double log_2(double x) {
 <br>
 <br>
 <hr>
+
 ### AdaBoost(Adaptive Boosting)
 
 * Model의 성능에 기반해 base model에 weight(or importance)인 $\alpha$를 할당. $\rightarrow$ model의 error rate가 낮다면, weight를 높게 줌.

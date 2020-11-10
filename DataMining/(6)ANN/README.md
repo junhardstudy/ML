@@ -76,12 +76,11 @@
 4. weight 값 조정하는 것을 특정 기준을 만족하거나 수렴할 때까지 반복.
 <br>
 <br>
-<hr>
-Example)두 개의 Input에 대한 AND 문제
 
 <br>
 <br>
 <hr>
+
 ### Multilayer perceptron
 
 XOR 문제와 같이, 기존의 perceptron으로는 선형적으로 분리할 수 없는 문제를 해결할 수 없음
@@ -94,6 +93,7 @@ XOR 문제와 같이, 기존의 perceptron으로는 선형적으로 분리할 �
 <br>
 <br>
 <hr>
+
 ### Building MLP
 
 1. Initialize the weights.
