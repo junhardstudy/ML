@@ -1,12 +1,4 @@
----
-
-title: "Artificial Neural Network"
-excerpt: "Artificial Neural Network에 대한 이론과 rapid miner를 이용한 실습"
-last_modified_at: 2020-08-15T10:27:01-05:00
-categories:
-  - data_mining_course
-use_math: true
----
+# 개요
 
 인간 두뇌의 신경계에 착안한, 수학.계산적 모델
 
@@ -14,7 +6,7 @@ use_math: true
 
 ### Perceptron
 
-![퍼셉트론 모델 사진](/image/perceptron.jpg)
+![퍼셉트론 모델 사진](./image/perceptron.jpg)
 
 * Simple neural network architectrue for learning a binary claasifier.
 
@@ -22,48 +14,45 @@ use_math: true
 
 #### Definition
 
-$Y = I(\sum{i}W_{i}X_{i} \; - \; t) = sign(\sum{i}W_{i}X_{i} \; - \; t)$
+
+![image](./image/def1.png)
+
 <br>
-따라서 일반적인 case에 대한 perceptron model의 output은, $\hat{Y} = sign(w_{i}x_{i} \; + \; w_{i-1}x_{i-1} \; + \; ... \; + \; w_{0}x_{0}) = sign(\overrightarrow{w}\cdot\overrightarrow{x})$
+따라서 일반적인 case에 대한 perceptron model의 output은, 
+
+![image](./image/def2.png)
 <br>
 <br>
 여기서 아래 수식을 일정 기준 동안 반복하며 학습하는 동안 weight(w)값이 갱심된.
 <br>
 <br>
-<div style="border:2px solid; max-width: 500px;">
-<font size="5px"><strong>$w_{j}^{(k+1)} = w_{j}^{k} + \lambda(y_{i} - \hat{y_{i}}^{(k)})x_{ij}$</strong></font>
-<br>
-<br>
-<font size="2px">
-$w_{j}^{(k+1)}$:new weight parameter
-<br> 
-$w_{j}^{(k)}$:old weight parameter 
-<br>
-$\lambda$ : Learning rate 
-<br>
-$y_{i} - \hat{y_{i}}^{(k)}$ : prediction error 
-<br>
-$x_{ij}$ : value of the jth attribute
-</font>
-</div>
+![image](./image/def3.png)
 <br>
 <br>
 
 가질 수 있는 값의 변화로는...
 1. prediction correct, weight is unchanged.
 
-2. prediction error, $y \; = \; +1, \hat{y} \; = \; 0$ : 예측이 +1로 가기위해 weight가 증가하는 방향으로 변화.
+2. prediction error 
 
-3. prediction error, $y \; = \; 0, \hat{y} \; = \; +1$ : 예측이 0으로 가기위해 weight가 감소하는 방향으로 변화.
+![image](./image/cor1.png)
+
+예측이 +1로 가기위해 weight가 증가하는 방향으로 변화.
+
+3. prediction error 
+
+![image](./image/cor2.png)
+
+예측이 0으로 가기위해 weight가 감소하는 방향으로 변화.
 
 <br>
 <br>
 
-#### Learning rate $\lambda$
+#### Learning rate lambda
 
-* $\lambda$값이 0에 가까울수록 새로운 weight값은 과거의 weight값에 영향을 많이 받음.
+* lambda값이 0에 가까울수록 새로운 weight값은 과거의 weight값에 영향을 많이 받음.
 
-* $\lambda$값이 1에 가까울수록 새로운 weight값은 현재 weight값을 조정하는 iteration에 좀 더 민감.
+* lambda값이 1에 가까울수록 새로운 weight값은 현재 weight값을 조정하는 iteration에 좀 더 민감.
 <br>
 <br>
 <hr>
@@ -97,7 +86,7 @@ Example)두 개의 Input에 대한 AND 문제
 
 XOR 문제와 같이, 기존의 perceptron으로는 선형적으로 분리할 수 없는 문제를 해결할 수 없음
 <br>
-![MLP 예시 사진](/image/MLP.jpg)
+![MLP 예시 사진](./image/MLP.jpg)
 <br>
 * 한 개 이상의 hidden layer를 거쳐서 output을 생성.
 

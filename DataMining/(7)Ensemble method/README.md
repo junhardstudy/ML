@@ -1,15 +1,8 @@
----
-
-title: "Ensemble methods"
-excerpt: "Ensemble methods에 대한 이론과 rapid miner를 이용한 실습"
-last_modified_at: 2020-08-15T10:27:01-05:00
-categories:
-  - data_mining_course
-use_math: true
----
+# 개요
 
 여러 개의 weak base model들을 생성하고, 그 output들을 하나로 취합하여 하나의 output을 만드는 strong model 생성 방법 
-![앙상블 매서드 사진](/image/ensemble_method.jpg)
+
+![앙상블 매서드 사진](./image/ensemble_method.jpg)
 <br>
 ### Ensemble modeling에서 중요 요구 사항
 

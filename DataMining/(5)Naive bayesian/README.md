@@ -245,8 +245,12 @@ Rapidminer에서 제공하는 golf sample 데이터를 이용하여 Naive Bayesi
 
 modeling을 하기위해 Naive Bayes process를 추가하고 training data의 link를 이어줍니다.
 
-이 때, laplace correction을 사용합니다. laplace correction은 주어진 query(예측하고자하는 unknown data)가 가지고 있는 attribute에 대해서 특정 attribute의
- value를 가지지 않는 case가 발생할 수 있습니다. 이럴 경우, 해당 확률값은 0이 되고 조건부 확률을 계산할 때 확률값이 0인 term이 들어가게 되면 전체 확률이 0이 되어 유의미한 예측 모델이
+modeling을 할 때, laplace correction을 사용합니다. 
+
+laplace correction은 주어진 query(예측하고자하는 unknown data)가 가지고 있는 attribute에 대해서 특정 attribute의
+ value를 가지지 않는 case가 발생할 수 있습니다. 
+ 
+ 이럴 경우, 해당 확률값은 0이 되고 조건부 확률을 계산할 때 확률값이 0인 term이 들어가게 되면 전체 확률이 0이 되어 유의미한 예측 모델이
   아니게 됩니다. 따라서 이런 case를 방지하기 위해 각각의 조건부 확률 term을 계산할 때 분자와 분모에 모두 1을 더하는 방법입니다.
 
 <br>
