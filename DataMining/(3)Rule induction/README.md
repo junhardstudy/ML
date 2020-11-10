@@ -110,22 +110,28 @@ Example)
 		<td>브론즈</td>
 	</tr>
 </table>
+
 Rule set : (와드 여부 = No) and (맵 활용 여부 = No) and (비속어 사용 횟수 > 20) = 브론즈
 <br>
 <br>
+
 ![eq1](./image/excoverage.png)
 <br>
+
 이 중에서 class label이 브론즈인 record는 2개 이므로,
 <br>
+
 ![eq1](./image/exaccuracy.png)
+
 <br>
-<hr>
 <br>
+
 #### Mutually exclusive rule set
+
 모든 instance들이 많아야 하나의 rule에 의해서만 cover 될 때
 <br>
 <br>
-Not mutually exclusive rule ser일 때는,
+Not mutually exclusive rule set일 때는,
 <br>
 1. ordered rules : rule들만의 우선순위에 따라 순위를 정의하여 순위가 높은 rule의 class로 분류, oreder rule set은 decision list로도 알려짐
 
