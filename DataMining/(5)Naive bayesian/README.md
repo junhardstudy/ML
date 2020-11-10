@@ -211,6 +211,7 @@ P(X|No) = P(Refund = No|No)P(Divorced|No)P(Income=120K|No)
 <br>
 <br>
 
+No target class에 대해서도, 정확한 확률값보다는 확률의 크기를 비교할것이므로 P(X) 계산 X.
 
 ![image](./image/sol4.png)
 
@@ -218,6 +219,54 @@ P(X|No) = P(Refund = No|No)P(Divorced|No)P(Income=120K|No)
 ***
 
 ## Rapid Miner를 이용한 실습
+
+Rapidminer에서 제공하는 golf sample 데이터를 이용하여 Naive Bayesian model을 만들고 test data로 golf를 하러 갈 수 있는지 예측해봅니다.
+
+* Data preparation
+
+![image](./image/1.JPG)
+
+![image](./image/1-1.JPG)
+
+![image](./image/1-2.JPG)
+
+각각 training dataset과 생성된 model을 통해 예측할 test dataset입니다.
+
+한개의 categorical class label과 2개의 categorical features, 그리고 2개의 continuous features를 가지고 있습니다.
+
+<br>
+<br>
+
+* Modeling
+
+![image](./image/2.JPG)
+
+![image](./image/2-1.JPG)
+
+modeling을 하기위해 Naive Bayes process를 추가하고 training data의 link를 이어줍니다.
+
+이 때, laplace correction을 사용합니다. laplace correction은 주어진 query(예측하고자하는 unknown data)가 가지고 있는 attribute에 대해서 특정 attribute의
+ value를 가지지 않는 case가 발생할 수 있습니다. 이럴 경우, 해당 확률값은 0이 되고 조건부 확률을 계산할 때 확률값이 0인 term이 들어가게 되면 전체 확률이 0이 되어 유의미한 예측 모델이
+  아니게 됩니다. 따라서 이런 case를 방지하기 위해 각각의 조건부 확률 term을 계산할 때 분자와 분모에 모두 1을 더하는 방법입니다.
+
+<br>
+<br>
+
+* Apply modeling and evaluation
+
+![image](./image/3.JPG)
+
+![image](./image/4.JPG)
+
+![image](./image/5.JPG)
+
+![image](./image/6.JPG)
+
+![image](./image/7.JPG)
+
+Data preparation단락에서 보았듯이, temperature feature와 humadity feature은 continuous한 값을 가지므로 가우스 확률 분포를 이용하여 확률값을 계산하게 됩니다.
+
+마지막은 각각의 target == no, target == yes 일때의 attribute별 조건부 확률과 continuou feature의 확률 분포함수를 구할 때 필요한 평균과 표준편차입니다.
 
 ## 출처 및 참고문헌
 
