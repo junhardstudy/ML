@@ -50,8 +50,11 @@ P(Y\|X) : the conditional probability.
 
 <br>
 P(X|Y) : Class conditional probability
+
 * 해당 class label Y일 때, attribute set이 특정값 evidence X일 확률
+
 * data set으로부터 계산할 수 있음
+
 * posterior probability 계산하는데 중요
 <br>
 <br>
@@ -59,7 +62,7 @@ P(X|Y) : Class conditional probability
 
 ### Definition of general case
 
-![image](./image/defgen.png)
+![image](./image/defcon.png)
 
 <br>
 <br>
@@ -103,6 +106,7 @@ P(X|Y) : Class conditional probability
 
 <br>
 <hr>
+
 ### Example
 
 주어진 test record의 attribute가 X = (Refund = No, Divorced, Income = 10k)일때, Naive Bayes Classifier를 이용한다면 어느 class label로 분류?
