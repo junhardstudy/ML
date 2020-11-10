@@ -320,15 +320,15 @@ training example의 weight를 update하는데 이용
 
 1. AdaBoost
 
-![image](./image/2.png)
+![image](./image/2.JPG)
 
-![image](./image/2-2.png)
+![image](./image/2-2.JPG)
 
 2. Random forest
 
-![image](./image/1.png)
+![image](./image/1.JPG)
 
-![image](./image/1-1.png)
+![image](./image/1-1.JPG)
 
 ***
 
