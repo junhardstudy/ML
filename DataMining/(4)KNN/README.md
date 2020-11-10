@@ -72,7 +72,7 @@ Example)
 
 2. Z-transformation : 모든 attribute들이 평균이 0이고 표준 편차가 1인 값을 가지도록 rescale.
 
-![수식](./image/ztranformnormal.png)
+![수식](./image/ztransformnormal.png)
 
 
 <br>
@@ -100,12 +100,8 @@ Example)
 #### Pearson correlation
 
 ![수식](./image/correlation.png)
-
 <br>
-<br>
--1 : Perfect negative correlation
-<br>
- 1 : Perfect positive correlation
+-1 : Perfect negative correlation, 1 : Perfect positive correlation
 <br>
 <br>
 
@@ -116,7 +112,7 @@ Example)
 <br>
 <br>
 *주의)위 수식에서 확률 변수 X, Y의 편차와 분산은 <strong>모집단의 편차, 분산이 아님</strong>!
-</div>
+
 <br>
 ![positive and negative correlation 예시 그래프](/image/positiveandnegativecorrelation.jpg)
 <br>
@@ -168,7 +164,9 @@ Example)X = (1, 2, 3, 4, 5), Y = (10, 15, 35, 40, 55)
 <br>
 여기서 matching occurance는 동일한 attribute에 대해 둘 다 positive, 1인 경우 이거나, 또는 둘다 negative, 0 인 경우를 의미
 <br>
+<br>
 Example) X = (1, 1, 0, 0), Y = (1, 0, 0, 1), Z = (1, 1, 0, 1)
+<br>
 <br>
 ![수식](./image/smcsolution.png)
 <br>
@@ -184,7 +182,9 @@ Example) X = (1, 1, 0, 0), Y = (1, 0, 0, 1), Z = (1, 1, 0, 1)
 <br>
 -> 이 때 total occurrence 계산 시, negative matching(m(000))은 무시
 <br>
+<br>
 Example)X = (1, 1, 0, 0), Y = (1, 0, 0, 1), Z = (1, 1, 0, 1)
+<br>
 <br>
 ![수식](./image/jaccardsmsolution.png)
 <br>
@@ -200,9 +200,10 @@ Example)X = (1, 1, 0, 0), Y = (1, 0, 0, 1), Z = (1, 1, 0, 1)
 ![수식](./image/cosinesm.png)
 <br>
 <br>
--> Euclidean distance는 보통 dense하고 continuous한 data에 사용하고 cosine, Jaccard similarity는 보통 sparse한 data에 사용.
+#### Euclidean distance는 보통 dense하고 continuous한 data에 사용하고 cosine, Jaccard similarity는 보통 sparse한 data에 사용.
 
 <hr>
+
 ### Issues of K-NN classifiers
 
 1. K값 설정
