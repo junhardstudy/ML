@@ -212,7 +212,7 @@ P(X|No) = P(Refund = No|No)P(Divorced|No)P(Income=120K|No)
 <br>
 
 
-![image](./image/sol3.png)
+![image](./image/sol4.png)
 
 
 ***
