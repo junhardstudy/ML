@@ -19,7 +19,9 @@ unseen data의 label을 분류, 예측.
 <hr>
 모든 record들은 n차원의 공간에서 하나의 점으로 표현할 수 있습니다. 여기서 n은 해당 data의 attribute의 개수를 뜻함.
 <br>
-### K개 가지는 의미
+
+### K 의미
+
 <br>
 고려되어지는 가장 가까운 training record의 <strong>개수</strong>
 <br>
@@ -247,3 +249,6 @@ voting은 다음과 같이 적용 됨.
 
 * Model을 만드는게 아니므로, modeling building하는데 시간이 많이 요구 되지않음. 단 거리나 similary와 같이 계산 요구가 높음.
 
+***
+
+## Rapid Miner를 이용한 실습
