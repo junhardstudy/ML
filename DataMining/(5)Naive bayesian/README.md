@@ -210,7 +210,10 @@ P(X|Yes) = P(Refund = No|Yes)P(Divorced|Yes)P(Income=120K|Yes)
 P(X|No) = P(Refund = No|No)P(Divorced|No)P(Income=120K|No)
 <br>
 <br>
-![image](./image/sol4.png)
+
+
+![image](./image/sol3.png)
+
 
 ***
 
