@@ -126,6 +126,8 @@ Rule set : (와드 여부 = No) and (맵 활용 여부 = No) and (비속어 사�
 <br>
 <br>
 
+<hr>
+
 #### Mutually exclusive rule set
 
 모든 instance들이 많아야 하나의 rule에 의해서만 cover 될 때
