@@ -272,11 +272,8 @@ double log_2(double x) {
 (4).boosting round의 마지막에 training example의 <strong>weight를 갱신</strong>.
 <br><br>
 
-<br>
-<br>
-
-매 boosting round마다, 옳게 예측한 것은 weight를 줄이는 방향으로 진행하고 반대로 잘 못 예측하는 경우에는 weight를 증가하는 방향으로 진행하여 classifier가
-좀 더 분류하기 어려운 training example에 집중 할 수 있게 해줌.
+	매 boosting round마다, 옳게 예측한 것은 weight를 줄이는 방향으로 진행하고 반대로 잘 못 예측하는 경우에는 weight를 증가하는 방향으로 진행하여 classifier가
+	좀 더 분류하기 어려운 training example에 집중 할 수 있게 해줌.
 
 <br><br>
 
