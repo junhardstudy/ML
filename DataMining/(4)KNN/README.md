@@ -252,3 +252,72 @@ voting은 다음과 같이 적용 됨.
 ***
 
 ## Rapid Miner를 이용한 실습
+
+Rapid miner에서 제공하는 iris sample data set을 이용하여, K-NN 모델을 생성하고, 생성된 model을 검증 해 봅니다.
+
+* Iris data set에 대한 attribute별 3D 분포도
+
+![수식](./image/d1.png)
+
+![수식](./image/d2.png)
+
+<br>
+<br>
+
+![수식](./image/1.JPG)
+
+Iris sample data set의 경우, 각각의 data set의 서로 다른 범위, 또는 단위(unit)를 가집니다. 범위가 서로 다른 attribute를 사용하면 범위가 큰 attribute에 의해서만
+model이 좌우될수 있으므로 normalization이 필요합니다.
+<br>
+<br>
+
+![수식](./image/1-1.JPG)
+
+![수식](./image/1-2.JPG)
+
+Normalization을 할때, z-transformation을 사용하였습니다.
+
+<br>
+<br>
+
+![수식](./image/1-3.JPG)
+
+<br>
+<br>
+
+![수식](./image/2.JPG)
+![수식](./image/2-1.JPG)
+
+한정된 sample data를 가지고, training과 test를 해야하기 때문에 70:30의 비율로 각각 training data, test data로 split해줍니다.
+
+<br>
+<br>
+
+![수식](./image/3.JPG)
+![수식](./image/3-1.JPG)
+
+K-NN 모델링 process를 적용할 때, 고려해야 되는 K의 개수는 3개로 하였습니다. distance는 유클리디언 distance로 하였으며, 그 때의 측정 type은
+ 모든 training attribute들이 numeric이므로 numericMeasure로 하였습니다.
+
+<br>
+<br>
+
+![수식](./image/4.JPG)
+![수식](./image/4-1.JPG)
+
+Test data set에 대해 K-NN 모델을 적용하고, 예측 된 결과에 대한 performance를 측정하는 프로세스를 추가해줍니다. 
+
+<br>
+<br>
+
+![수식](./image/5.JPG)
+
+K-NN은 주어진 training data set으로부터 예측하고자 하는 data set까지의 distance를 측정하여 예측하는 lazy model이기 때문에 
+따로 model이 생성되지는 않습니다. 
+
+<br>
+<br>
+
+## 출처 및 참고문헌
+
+KNN 이론 및 rapid miner 사용법 : 강의 PPT 자료

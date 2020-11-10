@@ -332,4 +332,9 @@ test data set(총 270개의 instance들)에 대해, 실제 Churn 값과 예측�
 ![eq1](./image/10.JPG)
 
 생성된 rule induction의 모델을 보여줍니다.
+<br>
+<br>
 
+## 출처 및 참고문헌
+
+Rule induction 이론 및 rapid miner 사용법 : 강의 PPT 자료
