@@ -318,6 +318,17 @@ training example의 weight를 update하는데 이용
 
 ## Rapid Miner를 이용한 실습
 
+1. AdaBoost
+
+![image](./image/2.png)
+
+![image](./image/2-2.png)
+
+2. Random forest
+
+![image](./image/1.png)
+
+![image](./image/1-1.png)
 
 ***
 
