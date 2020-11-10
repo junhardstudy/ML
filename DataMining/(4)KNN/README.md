@@ -24,6 +24,7 @@ unseen data의 label을 분류, 예측.
 고려되어지는 가장 가까운 training record의 <strong>개수</strong>
 <br>
 * k = 1일 때, 가장 가까운 하나의 training record의 class label을 채택. 하지만 그 training data가 outlier data여서 잘못 분류, 예측을 하게 될 수도 있음. 따라서 K를 2개 이상 선택
+
 * K > 1일 때, voting에 의해 결정하며 보통 동점(tie)이 나오는 상황을 방지하고자 K는 홀 수를 사용.
 
 ***
@@ -53,13 +54,12 @@ K-NN 알고리즘의 핵심은 test record와 가장 가까운 training record �
 n차원에서 두 점 사이의 거리
 <br>
 Example)
-![수식](./image/)
+![수식](./image/datasetex.png)
 <br>
 위와 같은 2개의 data가 있을 때,
 <br>
 
-distance =  $\sqrt{(-4)^{2} + (0)^{2} + (4)^{2} + (0)^{2}} = 4\sqrt{2} = 5.656$
-![수식](./image/)
+![수식](./image/eucldist.png)
 
 <br>
 
@@ -67,10 +67,13 @@ distance =  $\sqrt{(-4)^{2} + (0)^{2} + (4)^{2} + (0)^{2}} = 4\sqrt{2} = 5.656$
 각 attribute사이에서 단위가 다를 수 있으므로, 그런 경우 <strong>Normalization</strong>이 필요함
 
 1. Range transformation : 값이 0 ~ 1 사이의 값을 가지도록 함.
-$ X_{normalized} = {X-min(X)}/max(X)$
+
+![수식](./image/rangenormal.png)
 
 2. Z-transformation : 모든 attribute들이 평균이 0이고 표준 편차가 1인 값을 가지도록 rescale.
-$ X_{normalized} = {X - mean(X)}/std(X)$
+
+![수식](./image/ztranformnormal.png)
+
 
 <br>
 <br>
@@ -82,13 +85,10 @@ $ X_{normalized} = {X - mean(X)}/std(X)$
 
 Example)
 <br>
-two data $X_{1} = (3, 2, 5, 2)$, $X_{2} = (7, 2, 1, 2)$가 있을 때,
+위와 같은 2개의 데이터가 있을 때, Manhatten distance와 Chebyshev distance는 각각 아래와 같이 계산되어집니다.
 <br>
 <br>
-&nbsp;&nbsp; Manhatten distance = $\|3-7\|+\|2-2\|+\|5-1\|+\|2-2\| = 8$
-<br>
-<br>
-&nbsp;&nbsp; Chebyshev distance = max(\|3-7\|, \|2-2\|, \|5-1\|) = 4$
+![수식](./image/exsol.png)
 <br>
 
 ***
@@ -98,8 +98,9 @@ two data $X_{1} = (3, 2, 5, 2)$, $X_{2} = (7, 2, 1, 2)$가 있을 때,
 두 data X, Y에 대해 각 attribute 사이의 <strong>linear relationship에 대한 척도</strong>
 
 #### Pearson correlation
-<div style="border:2px solid; max-width: 500px;">
-<strong> Correlation(X, Y) = $\rho$ = $\frac{S_{XY}}{S_{X} \times S_{Y}}, -1 \leq \rho \leq 1$ </strong>
+
+![수식](./image/correlation.png)
+
 <br>
 <br>
 -1 : Perfect negative correlation
@@ -107,7 +108,9 @@ two data $X_{1} = (3, 2, 5, 2)$, $X_{2} = (7, 2, 1, 2)$가 있을 때,
  1 : Perfect positive correlation
 <br>
 <br>
-$S_{XY} = \frac{1}{n-1} \sum_{i = 1}{n}(x_{i} - \overline{x})(y_{i} - \overline{y})$
+
+![수식](./image/xyvariance.png)
+
 <br>
 ->x와 y의 covariance
 <br>
@@ -122,7 +125,7 @@ $S_{XY} = \frac{1}{n-1} \sum_{i = 1}{n}(x_{i} - \overline{x})(y_{i} - \overline{
 Example)X = (1, 2, 3, 4, 5), Y = (10, 15, 35, 40, 55)
 <br>
 <br>
-평균은 $m_{x} = 3, m_{y} = 31 $
+![수식](./image/mean.png)
 <br>
 
 <table>
@@ -147,9 +150,7 @@ Example)X = (1, 2, 3, 4, 5), Y = (10, 15, 35, 40, 55)
 따라서 Variance(X) = 2.5, Variance(Y) = 342.5
 <br>
 
-COV(x, y) = $\frac{1}{4} ( -2 \times -21 + -1 \times -16 + 1 \times 9 + 2 \times 24 ) = 28.75$
-<br>
-$\rho = \frac{28.75}{\sqrt{2.5 \times 342.5}} = 0.9825$
+![수식](./image/solution1.png)
 <br>
 
 ***
@@ -162,19 +163,14 @@ $\rho = \frac{28.75}{\sqrt{2.5 \times 342.5}} = 0.9825$
 
 <h4>Definition</h4>
 
-SMC = $\frac{matching occurrence}{total occurrence}$
+![수식](./image/smc.png)
 <br>
 <br>
 여기서 matching occurance는 동일한 attribute에 대해 둘 다 positive, 1인 경우 이거나, 또는 둘다 negative, 0 인 경우를 의미
 <br>
 Example) X = (1, 1, 0, 0), Y = (1, 0, 0, 1), Z = (1, 1, 0, 1)
 <br>
-$m_{000} = 1, m_{001} = 0, m_{010} = 0, m_{011} = 1, m_{100} = 0, m_{101} = 1, m_{110} = 0, m_{111} = 1$
-<br>
-<br>
-$\frac{m_{000}+m_{111}}{m_{000} + m_{001} + m_{010} + m_{011} + m_{100} + m_{101} + m_{110} + m_{111}}$
-$ = \frac{1 + 1}{1 + 0 + 0 + 1 + 0 + 1 + 0 + 1}= \frac{2}{4} = 0.5$
-<br>
+![수식](./image/smcsolution.png)
 <br>
 <br>
 
@@ -184,14 +180,13 @@ $ = \frac{1 + 1}{1 + 0 + 0 + 1 + 0 + 1 + 0 + 1}= \frac{2}{4} = 0.5$
 
 <h4>Definition</h4>
 
-Jaccard Coefficient = $\frac{common occurrence}{total occurrence}$
+![수식](./image/jaccardsm.png)
 <br>
 -> 이 때 total occurrence 계산 시, negative matching(m(000))은 무시
 <br>
 Example)X = (1, 1, 0, 0), Y = (1, 0, 0, 1), Z = (1, 1, 0, 1)
 <br>
-Jaccard coefficient = $\frac{m_{111}}{m_{001} + m_{010} + m_{011} + m_{100} + m_{101} + m_{110} + m_{111}}$
-$ = \frac{1}{0 + 0 + 1 + 0 + 1 + 0 + 1} = \frac{1}{3}$
+![수식](./image/jaccardsmsolution.png)
 <br>
 <br>
 <br>
@@ -202,8 +197,7 @@ $ = \frac{1}{0 + 0 + 1 + 0 + 1 + 0 + 1} = \frac{1}{3}$
 
 <h4>Definition</h4>
 
-Cosine similarity(X, Y) = $\frac{\overrightarrow{X} \cdot \overrightarrow{Y}}{\overrightarrow{\|X\|} \; \overrightarrow{\|Y\|}} = cos\theta_{XY}$
-
+![수식](./image/cosinesm.png)
 <br>
 <br>
 -> Euclidean distance는 보통 dense하고 continuous한 data에 사용하고 cosine, Jaccard similarity는 보통 sparse한 data에 사용.
@@ -237,8 +231,9 @@ voting은 다음과 같이 적용 됨.
 1. Majority vote을 사용. 즉, K개의 가까운 것들 중에서 다수의 class labels를 채택
 
 2. 거리에 따른 weighted vote을 사용. 즉, 먼 거리일수록 voting에 영향을 적게 받도록 함. weight는 아래와 같이 계산.
-	* $W_{i} = \frac{1}{d_{i}^2}$
-	* $w_{i} = \frac{e^{-d(x, n_{i})}}{\sum_{i = 1}^{k}e^{-d(x, n_{i})}}$
+	
+![수식](./image/weight.png)	
+	
 <br>
 <br>
 <hr>
