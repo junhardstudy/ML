@@ -1,30 +1,14 @@
----
+# Rule induction 개요
 
-title: "Rule induction"
-excerpt: "Rule induction에 대한 이론과 rapid miner를 이용한 실습"
-last_modified_at: 2020-08-15T10:27:01-05:00
-categories:
-  - data_mining_course
-use_math : true
-
----
 앞의 decision tree와는 다르게, 특정 class label에 부합하기 위한 attribute 선행 조건들을 and로 묶은 rule set을 정합니다.
 그리고 예측하고자 하는 example의 class label을 rule set을 통해 label을 판별하는 모델입니다.
 <br>
 <br>
-예를 들어, 롤 유저들의 티어를 예측하는 rule set을 만든다면,
-<br>
-<div style="border:2px solid; max-width: 500px;">
-(맵을 보는가 = No) $\wedge$ (플레이시 비속어 횟수 > 20) = 브론즈
-<br>
-(와드 설치 유무 = Yes) $\wedge$ (분당 cs 횟수 > 8) = 플레티넘
-</div>
-<br>
-처럼 표현 할 수 있습니다.
 
 ### Definition
 
-Rule i : $(Condition)_{i} \rightarrow$ $ y$ $ _{i}$
+![eq1](./image/ruledef.png)
+
 <br>
 <br>
 위와 같은 if...then...else로 이루어진 rule이 집합의 형태로 이루어져 있으며 이를 rule set이라 합니다.
@@ -36,11 +20,15 @@ Rule i : $(Condition)_{i} \rightarrow$ $ y$ $ _{i}$
 
 ### 용어설명
 
-#### Accuracy : $\frac{\|A\|}{\|D\|}$
+
+![eq2](./image/accuracyeq.png)
 <br>
 전체 데이터 중에서 해당 rule을 trigger하는 record의 비율을 의미
 
-#### Coverage : $\frac{\|A\cap y\|}{\|A\|}$
+<br>
+<br>
+
+![eq1](./image/coverage.png)
 <br>
 trigger하는 record 중에서 해당 rule set의 label과 같은 record의 비율을 의미
 
@@ -122,15 +110,14 @@ Example)
 		<td>브론즈</td>
 	</tr>
 </table>
-Rule set : (와드 여부 = No) $\wedge$ (맵 활용 여부 = No) $\wedge$ (비속어 사용 횟수 > 20) = 브론즈
+Rule set : (와드 여부 = No) and (맵 활용 여부 = No) and (비속어 사용 횟수 > 20) = 브론즈
 <br>
 <br>
-Coverage = $\frac{3}{10} = 0.3$
+![eq1](./image/excoverage.png)
 <br>
 이 중에서 class label이 브론즈인 record는 2개 이므로,
 <br>
-<br>
-Accuracy = $\frac{2}{3} = 0.6667$
+![eq1](./image/exaccuracy.png)
 <br>
 <hr>
 <br>
@@ -176,8 +163,11 @@ sequential covering approach
 > extract the rules one class at a time.
 
 1. Start from an empty rule.
+
 2. Grow a rule using the <strong>Learn - one - rule function</strong>.
+
 3. Remove training instaces coverd by the rule.
+
 4. Repeat step (2) and (3) untile stopping criterion is method
 
 ##### What is Learn-one-rule function? <br> 최대한 많은 positive examples를, 또는 최대한 적은 negative example을 가지도록 하는 rule을 찾아 내는 것.
@@ -190,36 +180,11 @@ sequential covering approach
 ### Metrics for rule evaluation
 
 rule에 대한 평가를 하기 위한 척도
-<div style="border:2px solid; width: 700px;">
-1. Accuracy = $\frac{n_{c}}{n}$
-<br>
-2. Laplace = $\frac{n_{c} + 1}{n + k}$
-<br>
-3. M-estimate =  $\frac{n_{c} + kp}{n + k}$
-<br>
-4. FOIL's information gaine = $P_{1} \times (log_{2}\frac{P_{1}}{P_{1} + n_{1}} - log_{2}\frac{P_{0}}{P_{0} + n_{0}})$
-<br>
-</div>
-<div style="border:2px solid; width: 700px;">
-$ n $: rule에 의해 cover된 instance의 개수 
-<br>
-$ n_{c} $: rule에 의해 cover된 instance들 중에서 올바르게 분류된 instance의 개수
-<br>
-$ k $: class의 개수 
-<br>
-$ p $: prior probability 
-<br>
-$ P_{0} $: (before adding a new conjunct) positive instance 개수
-<br>
-$ n_{0} $: (before adding a new conjunct) negative instance 개수
-<br>
-$ P_{1} $: (after adding a new conjunct) positive instance 개수
-<br>
-$ n_{1} $: (after adding a new conjunct) negative instance 개수
-</div>
-<br>
+
+![eq1](./image/matrix.png)
+
 Example)
-<div style="border:2px solid; width: 700px;">
+
 Training set은 50개의 positive 와 100개의 negative example을 가지며, 아래와 같은 rule이 있을 때 각 matrics의 value는?
 <br>
 <br>
@@ -227,22 +192,8 @@ Training set은 50개의 positive 와 100개의 negative example을 가지며, �
  <br>
  * r2 : covers 5 positive and 1 negative examples
  <br>
- <br>
- Accuracy$_{r1} = \frac{20}{25} = 0.8$
- <br>
- Accuracy$_{r2} = \frac{5}{6} = $
- <br>
- <br>
- Laplace$_{r1} = \frac{20 + 1}{25 + 2} = \frac{21}{27} = $
- <br>
- Laplace$_{r2} = \frac{5 + 1}{6 + 2} = \frac{6}{8} = 0.75$
- <br>
- <br>
- FOIL's information gain$_{r1} = 20 \times (log_{2}\frac{20}{20+5} - log_{2}\frac{50}{50+100})= $
- <br>
- FOIL's information gain$_{r2} = 5 \times (log_{5}\frac{20}{5+1} - log_{2}\frac{50}{50+100}) = $
- 
-</div>
+![eq1](./image/solution.png)
+
 <br>
 마지막으로 그렇다면, rule 생성을 언제 까지 해야 하는가?
 <br>
@@ -271,3 +222,102 @@ Training set은 50개의 positive 와 100개의 negative example을 가지며, �
 
 * Specific to general : 무작위로 positive example 하나를 선택해서 특정 기준을 만족할 때 까지, 더 많은 positive example을 포함 하는 방향으로 rule을 제거
 ![예시그림]()
+
+***
+
+## Rapid Miner를 이용한 실습
+
+과제에서 제공받은 data set customer-churn data를 이용하여 rule기반 classifier를 학습하여 최종 모델을 만듭니다.
+
+모델및 데이터 preparation 요구사항
+
+1. target label은 churn
+
+2. Data set은 target label에 대해 값이 있는 것만 사용(no missing value)
+
+3. training은 전체 데이터의 70퍼센트만 사용
+
+4. test는 전체 데이터의 30퍼센트만 사용
+
+5. data sampling은 stratified sampling을 사용
+
+6. 성능 평가에 대한 parameter는 accuracy이용
+
+***
+
+1. Data preparation
+
+![eq1](./image/1.JPG)
+
+![eq1](./image/1-1.JPG)
+
+Rapid miner에서 제공하는 샘플 데이터와는 달리 어느 attribute가 target label인지 명시할 필요가 있습니다.
+
+따라서 <strong>set role</strong> 프로세스를 추가하여, 우리가 예측하고자 하는 Churn을 target label로 지정합니다.
+
+<br>
+<br>
+
+![eq1](./image/2.JPG)
+
+![eq1](./image/2-1.JPG)
+
+제공받거나, 또는 측정한 data set에서 모든 instance가 가지고 있는 모든 attribute에 대해 값을 무조건 다 가질 수는 없는경우가 있습니다.
+
+training을 할때, 이러한 특정 attribute에서 missing value를 가진 instance들은 제외하고자 할때 <strong>filter examples</strong> 프로세스를 추가합니다.
+
+<br>
+<br>
+
+![eq1](./image/3.JPG)
+
+![eq1](./image/3-1.JPG)
+
+![eq1](./image/3-2.JPG)
+
+다음으로 제공받은 data set중에서 70퍼센트는 학습 데이터로, 나머지 30퍼센트는 test단계 때 사용하기 위해 <strong>split</strong> 프로세스를 추가합니다.
+
+<br>
+<br>
+
+2. Modeling
+
+![eq1](./image/4.JPG)
+
+![eq1](./image/4-1.JPG)
+
+Rule induction을 사용하여 분류하고자 하므로, Rule induction 프로세스를 추가합니다. 
+
+사용하는 rule induction의 평가 척도는 information gain을 사용하였습니다.
+
+<br>
+<br>
+
+3. Test and deployment
+
+![eq1](./image/5.JPG)
+
+![eq1](./image/6.JPG)
+
+![eq1](./image/6-1.JPG)
+
+생성된 model을 이용하여 unseen data를 예측하기 위해 <strong>apply model</strong>프로세스를 추가하고, 예측된 결과에 대해 모델의 성능을 검증하기 위해 마지막으로
+<strong>performance</strong>프로세스를 추가합니다.
+
+<br>
+<br>
+
+4. 모델, 예측 결과
+
+![eq1](./image/7.JPG)
+
+test data set(총 270개의 instance들)에 대해, 실제 Churn 값과 예측하였을 때의 Churn값, 그리고 예측할때의 confidence, 마지막으로 4개의 descriptive attribute를 보여줍니다.
+
+![eq1](./image/8.JPG)
+
+![eq1](./image/9.JPG)
+
+![eq1](./image/10.JPG)
+
+생성된 rule induction의 모델을 보여줍니다.
+
