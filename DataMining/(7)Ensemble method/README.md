@@ -90,6 +90,7 @@
 
 전체적인 코드는 위와 같은 원본 데이터를 10번 반복하여 무작위 복원 추출하여 10개의 sample을 만든 뒤, bagging을 하고 각 base model에 대해 split 값을 구하는 것 입니다.
 <br>
+<br>
 이 때, split을 하기위한 척도로는 entropy를 사용.
 <br>
 
@@ -168,6 +169,7 @@ void main() {
 <br>
 <br>
 resampling함수는 무작위로 원본데이터를 복원 추출하여 10개를 가져오는데, 가져오고 나서는 정렬이 필요함
+
 ```c
 void resampling(data original, data* sample) {
 	double tmp;
@@ -210,6 +212,7 @@ void resampling(data original, data* sample) {
 <br>
 <br>
 그 외에는 밑이 2인 log함수와 entropy 계산 수식을 위한 함수.
+
 ```c
 double calc_entropy(node Rnode, node Lnode) {
 	double tmp1, tmp2;
