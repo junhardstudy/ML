@@ -287,7 +287,7 @@ double log_2(double x) {
 
 ### AdaBoost(Adaptive Boosting)
 
-* Model의 성능에 기반해 base model에 weight(or importance)인 $\alpha$를 할당. $\rightarrow$ model의 error rate가 낮다면, weight를 높게 줌.
+* Model의 성능에 기반해 base model에 weight(or importance)인 알파(a)를 할당. (model의 error rate가 낮다면, weight를 높게 주는데 이용.)
 
 * 예측, 정확도에 기반하여, training records의 weight를 바꿈.
 
@@ -324,7 +324,11 @@ training example의 weight를 update하는데 이용
 
 ![image](./image/2-2.JPG)
 
-AdaBoost의 경우, base 모델은 decision tree로 10개를 생성하였습니다.
+AdaBoost의 경우, 동일 base model에 대하여 sampling을 할 때 weight를 이용합니다.
+
+이는 decision tree 모델을 생성하고자 하는 base model의 개수만큼 반복해서 학습을 수행하는 것처럼 생각할 수 있습니다.
+
+따라서 base model을 10개 생성하고자 하는경우, 10번 반복해주면 됩니다.
 
 <br>
 <br>
@@ -333,13 +337,15 @@ AdaBoost의 경우, base 모델은 decision tree로 10개를 생성하였습니�
 
 ![image](./image/a2.JPG)
 
+학습이 진행될 때마다(다음 base model로 넘어갈 때마다) weight값이 변함을 확인할 수 있습니다. 기존에 decision tree를 단독으로 하나만 사용했을 때보다 예측을 좀더 잘하는것을 확인할 수 있습니다.
+
 2. Random forest
 
 ![image](./image/1.JPG)
 
 ![image](./image/1-1.JPG)
 
-Tree의 개수는 10개로 하며, confidence voting을 사용하였습니다.
+Tree의 개수(base model의 개수)는 10개로 하며, decision tree를 생성할 때 split condition은 gain ratio로 하고 base model의 결과들을 취합할 때는 confidence voting을 사용하였습니다.
 
 <br>
 <br>
@@ -347,6 +353,13 @@ Tree의 개수는 10개로 하며, confidence voting을 사용하였습니다.
 ![image](./image/r2.JPG)
 
 ![image](./image/r1.JPG)
+
+마찬가지로 decision tree 단독으로 사용한 모델에서 예측을 할때보다, 좀 더 예측을 잘하는 것을 알수있습니다.
+
+
+### decision tree 단독으로 사용했을 경우 예측 성능에
+
+![image](./image/sol.JPG)
 
 ***
 

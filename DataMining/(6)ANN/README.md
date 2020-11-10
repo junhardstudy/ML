@@ -65,11 +65,12 @@
 <br>
 <br>
 <hr>
+
 ### Building Perceptron model
 
 1. Topology와 activation function 정하기.
 
-2. Initialize w, $\lambda$, and t. -> 보통 randomly하게 정함.
+2. Initialize w, lambda, and t. -> 보통 randomly하게 정함.
 
 3. Error 값 계산.
 
