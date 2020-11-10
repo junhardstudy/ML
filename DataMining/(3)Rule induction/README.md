@@ -191,15 +191,19 @@ rule에 대한 평가를 하기 위한 척도
 
 ![eq1](./image/matrix.png)
 
-Example)
+### Example)
 
 Training set은 50개의 positive 와 100개의 negative example을 가지며, 아래와 같은 rule이 있을 때 각 matrics의 value는?
 <br>
 <br>
- * r1 : covers 20 positive and 5 negative examples
- <br>
- * r2 : covers 5 positive and 1 negative examples
- <br>
+
+* r1 : covers 20 positive and 5 negative examples
+
+<br>
+ 
+* r2 : covers 5 positive and 1 negative examples
+
+<br>
  
 ![eq1](./image/solution.png)
 
@@ -211,7 +215,8 @@ Training set은 50개의 positive 와 100개의 negative example을 가지며, �
 
 ### Stopping criterion and rule pruning
 
-언제 rule 생성을 그만 두어야 하는가?  
+언제 rule 생성을 그만 두어야 하는가?
+  
 1. Gain 이나 accuracy를 계산
 
 2. 계산된 gain, 또는 accuracy에 변화가 없을 때 stop하거나 다른 rule 생성을 시작
@@ -226,11 +231,9 @@ Training set은 50개의 positive 와 100개의 negative example을 가지며, �
 ### Rule growing strategy
 
 * General to spcific : empty rule에서 시작해서 특정 기준을 만족 할 때까지 rule의 quality를 개선 시키는 방향으로 rule을 추가
-![예시그림]()
 
 
 * Specific to general : 무작위로 positive example 하나를 선택해서 특정 기준을 만족할 때 까지, 더 많은 positive example을 포함 하는 방향으로 rule을 제거
-![예시그림]()
 
 ***
 
