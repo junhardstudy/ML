@@ -200,6 +200,7 @@ Training set은 50개의 positive 와 100개의 negative example을 가지며, �
  <br>
  * r2 : covers 5 positive and 1 negative examples
  <br>
+ 
 ![eq1](./image/solution.png)
 
 <br>
