@@ -291,34 +291,39 @@ double log_2(double x) {
 
 * 예측, 정확도에 기반하여, training records의 weight를 바꿈.
 
-* N개의 training example이 있고, K개의 Base classifiers가 있을 때($C_{1}, \, C_{2}, \, ..., \, C_{k})$, Base classifier의 $C_{i}$의 error rate는
+* N개의 training example이 있고, K개의 Base classifiers가 있을 때, 각 각의 Base classifier error rate는
 
-<div style="margin-left:50px">
-<font size="4px">$\epsilon_{i} = \frac{1}{N}\sum_{j=1}^{N}w_{j}\delta(C_{i}(x_{j}) \neq y_{j})$</font>
-</div>
+![image](./image/adaepsil.png)
 
 <br>
 
 * error rate에 기반한 base classifier의 importance는,
 
-<div style="margin-left:50px">
-<font size="4px">$\alpha_{i} = \frac{1}{2}\ln(\frac{1 - \epsilon_{i}}{\epsilon_{i}})$</font>
-<br>
-$\rightarrow$ training example의 weight를 update하는데 이용
-</div>
+![image](./image/alpha.png)
 
-* 만약, $\epsilon_{i}$ > 0.5 라면 다시 $\frac{1}{n}$로 초기화.
+training example의 weight를 update하는데 이용
+
+![image](./image/errorini.png)
+
 
 <br>
 
 * j번째 boosting round에서 i번째 training record에 대한 weight 값 변화는 다음과 같음.<strong>(weight값 갱신)</strong>
 
-<div style="margin-left:50px">
-<font size="4px">$w_{i}^{(j+1)} = \frac{w_{i}^{(j)}}{Z_{j}} \left\lbrace\begin{array}{ll}exp^{-\alpha_{j}} & if \;\; C_{j}(x_{j} = y_{j}) \newline exp^{\alpha_{j}} & if \;\; C_{j}(x_{j}) \neq y_{j}\end{array}\right.$</font>
-<br>
-$\rightarrow Z_{j}$는 $\sum_{i}w_{i}^{(j+1)} = I$를 이용한 normalization factor
-</div>
+![image](./image/weightada.png)
 
+![image](./image/normal.png)
+
+***
+
+## Rapid Miner를 이용한 실습
+
+
+***
+
+## 출처 및 참고문헌
+
+Ensemble method에 대한 이론 및 rapid miner 사용법 : 강의 PPT 자료
 
 
 
